@@ -1,0 +1,42 @@
+#### Flickr computer vision and image processing at scale
+
+- Machine learning and computer vision @ flickr
+    - Deep learning etc ..
+    - Computer vision etc ..
+- How autotags ties into the product?
+- Why did we needed storm?
+    - model load times ammortization
+    - deployment model
+    - industry support
+    - our past experience with offline task systems
+        - queues after queues after queus 
+        - what happens if your machines go down?
+        - who monitors all these queues?
+        - who monitors the processing units?
+        - what happens when need to scale out to more machines?
+- What is storm?
+    - map-reduce is to hadoop as spout-bolts is to storm
+        - computation framework for structuring code
+        - expert operations team can help manage computational "fabric"
+        - developers can focus on application specific code and features
+        - structure for collaboration  between 2 teams
+    - you get "robust" distributed computing for free
+        - automatically restart jobs
+        - at least once processing
+            - what does this mean exactly? do you no longer need to check your code?
+        - no single point of failure
+    - Storm components
+        - nimbus server
+        - supervisors
+        - zookeepers
+- Architecture of storm deployment at flickr
+    - redis -> autotags spout -> search engine
+                              -> key-value db
+    - Hadoop grid backfill
+        - oozie
+    - Building portable packages made of python, c++, shared libraries 
+    - Little's law and predicting overall processing capacity
+- Ideas for future directions
+    - storm on gpus for image resizing
+    - etc .. 
+- Questions
